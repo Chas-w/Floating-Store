@@ -1,0 +1,16 @@
+{
+	"Dialogue_Manager": {
+		"Current_Conversation_ID": "Name of Current NPC/Interactable",
+		"Current_Conversation_Status": "Either default, selected option, quest, or finished"
+	},
+	"Stored_Conversations":[ 
+		{
+			"NPC_Name" : {
+				"Status" : "conversation status"
+			}, 
+			"NPC_Name_2" : {
+				"Status" : "conversation status"
+			}
+    	}
+	]
+}

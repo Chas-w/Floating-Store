@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://i45rxxu8g27j"]
+
+[ext_resource type="Script" uid="uid://d3qiwemwdlxl5" path="res://Prototyping/CHASE/Movement Test/scripts/user_interface.gd" id="1_y11tf"]
+[ext_resource type="Shader" uid="uid://byc54teku3wr8" path="res://Prototyping/CHASE/Movement Test/shaders/tilt_shift_shader.gdshader" id="5_vjshv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fl3qi"]
+shader = ExtResource("5_vjshv")
+shader_parameter/limit = 0.3170000150575
+shader_parameter/blur = 0.222000010545
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y11tf"]
+load_path = "res://.godot/imported/dialoguebox.png-521a39bc5e054f6bf4e74eef3fd2bb7b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n25kw"]
+load_path = "res://.godot/imported/dialoguebox-nametag.png-5b608a6dfe291014d3807237b3beb537.ctex"
+
+[node name="User Interface" type="CanvasLayer" unique_id=2020881195 node_paths=PackedStringArray("main_ui", "dialogue_ui") groups=["UI"]]
+script = ExtResource("1_y11tf")
+main_ui = NodePath("main_UI")
+dialogue_ui = NodePath("dialogue_UI")
+
+[node name="main_UI" type="Control" parent="." unique_id=1350061328]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_behavior_recursive = 1
+
+[node name="Tiltshift" type="TextureRect" parent="main_UI" unique_id=1900336007]
+material = SubResource("ShaderMaterial_fl3qi")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="dialogue_UI" type="Control" parent="." unique_id=713169548]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dialogue Bubble" type="TextureRect" parent="dialogue_UI" unique_id=1836288085]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.67800003
+anchor_right = 0.554
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -426.34402
+offset_right = 508.12537
+offset_bottom = 7.0
+grow_vertical = 0
+texture = SubResource("CompressedTexture2D_y11tf")
+expand_mode = 1
+
+[node name="Dialogue Contents" type="RichTextLabel" parent="dialogue_UI/Dialogue Bubble" unique_id=180374836]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.126
+anchor_top = 0.79800004
+anchor_right = 0.88500005
+anchor_bottom = 0.98600006
+offset_left = 0.19198608
+offset_top = -0.31604004
+offset_right = -0.080078125
+offset_bottom = -5.012024
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/bold_italics_font_size = 36
+theme_override_font_sizes/italics_font_size = 36
+theme_override_font_sizes/mono_font_size = 36
+tab_size = 5
+
+[node name="Exit" type="Button" parent="dialogue_UI/Dialogue Bubble" unique_id=1324096649]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.78400004
+anchor_top = 0.91600007
+anchor_right = 0.883
+anchor_bottom = 0.96700007
+offset_left = 0.23999023
+offset_top = -0.072021484
+offset_right = 0.20263672
+offset_bottom = -0.070007324
+grow_horizontal = 0
+grow_vertical = 0
+action_mode = 0
+text = "ESC to exit"
+
+[node name="Let\'s Go" type="Button" parent="dialogue_UI/Dialogue Bubble" unique_id=1834427091]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.044000003
+anchor_top = 0.047000002
+anchor_right = 0.15400001
+anchor_bottom = 0.115
+offset_left = -0.2186737
+offset_top = -0.1740017
+offset_right = 0.23464966
+offset_bottom = 0.24201965
+grow_horizontal = 0
+grow_vertical = 0
+action_mode = 0
+text = "Let's Go (Enter)"
+
+[node name="Name Tag" type="TextureRect" parent="dialogue_UI" unique_id=278869490]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.91600007
+anchor_top = 0.92
+anchor_right = 0.994
+anchor_bottom = 0.99100006
+offset_left = -893.23206
+offset_top = -198.16003
+offset_right = -649.1864
+offset_bottom = -130.16803
+grow_vertical = 0
+texture = SubResource("CompressedTexture2D_n25kw")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="dialogue_UI/Name Tag" unique_id=530923689]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 21.0
+offset_right = -18.901611
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 31
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="dialogue_UI" unique_id=983202201]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.25
+anchor_bottom = 0.3
+offset_left = 656.0
+offset_top = 36.0
+offset_right = 656.368
+offset_bottom = 36.319977
+alignment = 1

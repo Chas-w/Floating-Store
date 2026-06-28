@@ -1,0 +1,83 @@
+{
+	"NPC" : {
+		"Name" : "Sally",
+		"Dialogue" : [
+			{
+				"Status" : "Default",
+				"Status_is_Array" : false,
+				"Line" : "Shoo kid, I'm trying to dance here",
+				"Player_Response" : true,
+				"Next_Status" : "null",
+				"Response_Options" : ["No","Sure whatever","I'm trying to dance too"],
+				"End_Conversation" : false,
+				"Exit_Line" : "null"
+			},
+			{
+				"Status" : "Opener",
+				"Status_is_Array" : false,
+				"Line" : "hey. . . ",
+				"Player_Response" : true,
+				"Next_Status" : "null",
+				"Response_Options" : ["Hey"],   
+				"End_Conversation" : false,
+				"Exit_Line" : "null"
+			
+			}, 
+			{
+				"Status" : "Hey",
+				"Status_is_Array" : false,
+				"Line" : "Can you move? I'm trying to dance here.",
+				"Player_Response" : true,
+				"Next_Status" : "null",
+				"Response_Options" : ["No","Sure whatever","I'm trying to dance too"],
+				"End_Conversation" : false,
+				"Exit_Line" : "null"
+			},
+			{
+				"Status" : "No",
+				"Status_is_Array" : false,
+				"Line" : "Fuck you",
+				"Player_Response" : false,
+				"Next_Status" : "this bitch",
+				"Response_Options" : null,				
+				"End_Conversation" : false,
+				"Exit_Line" : "this bitch is in my way"
+
+			},
+			{
+				"Status" : "this bitch",
+				"Status_is_Array" : false,
+				"Line" : "Bitch I will stomp on you",
+				"Player_Response" : false,
+				"Next_Status" : "null",
+				"Response_Options" : null,				
+				"End_Conversation" : true,
+				"Exit_Line" : "this bitch is in my way"
+
+			},
+			{
+				"Status" : "Sure whatever",
+				"Status_is_Array" : false,
+				"Line" : "Thanks champ",
+				"Player_Response" : false,
+				"Next_Status" : "null",
+				"Response_Options" : null,				
+				"End_Conversation" : true,
+				"Exit_Line" : "but you're still standing there"
+
+			},
+			{
+				"Status" : "I'm trying to dance too",
+				"Status_is_Array" : false,
+				"Line" : "Well get better at it",
+				"Player_Response" : false,
+				"Next_Status" : "null",
+				"Response_Options" : null,
+				"End_Conversation" : true,
+				"Exit_Line" : "Ouch that's my foot"
+
+			}
+
+		]
+	}
+}

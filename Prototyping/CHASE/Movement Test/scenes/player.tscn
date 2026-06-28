@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bknhaf3ev31eg"]
+
+[ext_resource type="Script" uid="uid://dk7lsq0wnbva4" path="res://Prototyping/CHASE/Movement Test/scripts/player_behavior.gd" id="1_kbjej"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_o3c4m"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrdlj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0caai"]
+
+[node name="Player" type="CharacterBody3D" unique_id=997567769 node_paths=PackedStringArray("nav_agent", "fp_cam", "rotation_target") groups=["Camera"]]
+script = ExtResource("1_kbjej")
+nav_agent = NodePath("NavigationAgent3D")
+rotation_speed = 3.0
+move_speed = 10.0
+fp_cam = NodePath("")
+rotation_target = NodePath("")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=778715464]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=990262259]
+mesh = SubResource("CapsuleMesh_o3c4m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2050022507]
+shape = SubResource("CapsuleShape3D_lrdlj")
+
+[node name="Interaction Detector" type="Area3D" parent="." unique_id=1995961629]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interaction Detector" unique_id=1352146399]
+shape = SubResource("CapsuleShape3D_0caai")
+debug_color = Color(0.90264046, 0.0001540184, 0.7573312, 0.41960785)
+
+[connection signal="area_entered" from="Interaction Detector" to="." method="_on_interaction_detector_area_entered"]
+[connection signal="area_exited" from="Interaction Detector" to="." method="_on_interaction_detector_area_exited"]
