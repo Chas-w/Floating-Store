@@ -51,7 +51,7 @@ size = Vector3(5.7023926, 0.15704632, 16.498108)
 [node name="Movement" type="Node" unique_id=767724366]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=350252024 groups=["Camera"]]
-transform = Transform3D(2.8006656, 0.16110058, 1.0631657, 0.15629588, 2.8736522, -0.84716797, -1.063883, 0.84626734, 2.674319, 20.020771, 2.0915923, 11.02017)
+transform = Transform3D(0.93355507, 0.05370024, 0.35438856, 0.05209861, 0.95788413, -0.28238925, -0.35462758, 0.28208908, 0.89143986, 20.020771, 2.0915923, 11.02017)
 top_level = true
 projection = 1
 current = true
