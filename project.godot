@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="Floating Store"
-run/main_scene="uid://b76vij71sl6tt"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="GameDirectory"
 config/features=PackedStringArray("4.6", "Forward Plus")
@@ -44,8 +43,6 @@ enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg", "res://addon
 
 folder_colors={
 "res://MAIN/": "green",
-"res://MAIN/Scenes/": "teal",
-"res://MAIN/Scripts/": "pink",
 "res://Prototyping/CHASE/": "purple",
 "res://Prototyping/Imported Mesh/": "gray",
 "res://Prototyping/Imported Textures/": "gray",

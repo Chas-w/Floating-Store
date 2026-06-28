@@ -12,7 +12,7 @@ var NPC_name : String
 var place_in_dialogue : String
 var dialogue_array 
 var option_container : VBoxContainer
-var response_button_path = preload("res://Prototyping/CHASE/Movement Test/scenes/response_button.tscn")
+var response_button_path = preload("res://Prototyping/CHASE/Movement Test/scenes/Entities/response_button.tscn")
 var skip : bool
 
 @export_category("Dialogue_Status")

@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://xbkwtfxpuub0"]
 
-[ext_resource type="PackedScene" uid="uid://bknhaf3ev31eg" path="res://Prototyping/CHASE/Movement Test/scenes/player.tscn" id="1_jyv6n"]
+[ext_resource type="PackedScene" uid="uid://bknhaf3ev31eg" path="res://Prototyping/CHASE/Movement Test/scenes/Entities/player.tscn" id="1_jyv6n"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_mxqci"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_wa5u4"]
 [ext_resource type="PackedScene" uid="uid://duobsg7qn1cod" path="res://Prototyping/Imported Mesh/partyscape.glb" id="4_521uk"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_bvqjo"]
 [ext_resource type="PackedScene" uid="uid://n65o7xbj7i07" path="res://Prototyping/Imported Mesh/Pigeon Lady.glb" id="8_jyv6n"]
-[ext_resource type="PackedScene" uid="uid://bfrtcqi3os4po" path="res://Prototyping/CHASE/Movement Test/scenes/interaction_trigger.tscn" id="9_mxqci"]
+[ext_resource type="Shader" uid="uid://bevimmafp1c1g" path="res://Prototyping/CHASE/Movement Test/shaders/Water.gdshader" id="8_mxqci"]
+[ext_resource type="PackedScene" uid="uid://bfrtcqi3os4po" path="res://Prototyping/CHASE/Movement Test/scenes/Entities/interaction_trigger.tscn" id="9_mxqci"]
 
 [sub_resource type="Gradient" id="Gradient_521uk"]
 
@@ -48,10 +49,62 @@ size = Vector3(5.7023926, 0.15704632, 16.498108)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_jyv6n"]
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_521uk"]
+
+[sub_resource type="Gradient" id="Gradient_wa5u4"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5iik8"]
+noise_type = 3
+seed = 49
+frequency = 0.001
+offset = Vector3(1000, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nynwv"]
+width = 2000
+height = 2000
+noise = SubResource("FastNoiseLite_5iik8")
+color_ramp = SubResource("Gradient_wa5u4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ld12"]
+render_priority = 0
+shader = ExtResource("8_mxqci")
+shader_parameter/color_shallow = Color(0.01, 0.2, 0.3, 1)
+shader_parameter/color_deep = Color(0.3, 0.5, 0.6, 1)
+shader_parameter/transparency = 0.6
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.25
+shader_parameter/max_visible_depth = 20.0
+shader_parameter/wave_a = SubResource("NoiseTexture2D_nynwv")
+shader_parameter/wave_move_direction_a = Vector2(-1, 0)
+shader_parameter/wave_move_direction_b = Vector2(0, 1)
+shader_parameter/wave_noise_scale_a = 15.0
+shader_parameter/wave_noise_scale_b = 15.0
+shader_parameter/wave_time_scale_a = 0.15
+shader_parameter/wave_time_scale_b = 0.15
+shader_parameter/wave_height_scale = 1.0
+shader_parameter/wave_normal_flatness = 50.0
+shader_parameter/surface_normals_move_direction_a = Vector2(-1, 0.2)
+shader_parameter/surface_normals_move_direction_b = Vector2(0.2, 1)
+shader_parameter/surface_texture_roughness = 0.15
+shader_parameter/surface_texture_scale = 0.1
+shader_parameter/surface_texture_time_scale = 0.06
+shader_parameter/ssr_resolution = 1.0
+shader_parameter/ssr_max_travel = 30.0
+shader_parameter/ssr_max_diff = 4.0
+shader_parameter/ssr_mix_strength = 0.7
+shader_parameter/ssr_screen_border_fadeout = 0.3
+shader_parameter/refraction_intensity = 0.4
+shader_parameter/border_color = Color(1, 1, 1, 1)
+shader_parameter/border_scale = 2.0
+shader_parameter/border_near = 0.5
+shader_parameter/border_far = 300.0
+shader_parameter/cut_out_x = 0.0
+shader_parameter/cut_out_z = 0.0
+
 [node name="Movement" type="Node" unique_id=767724366]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=350252024 groups=["Camera"]]
-transform = Transform3D(0.93355507, 0.05370024, 0.35438856, 0.05209861, 0.95788413, -0.28238925, -0.35462758, 0.28208908, 0.89143986, 20.020771, 2.0915923, 11.02017)
+transform = Transform3D(2.8006656, 0.16110058, 1.0631657, 0.15629588, 2.8736522, -0.84716797, -1.063883, 0.84626734, 2.674319, 20.020771, 2.0915923, 11.02017)
 top_level = true
 projection = 1
 current = true
@@ -194,6 +247,11 @@ transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.965
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Infinite Area [for mouse position]/Area3D" unique_id=1458833167 groups=["Mouse Pos"]]
 shape = SubResource("WorldBoundaryShape3D_jyv6n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=467480128]
+transform = Transform3D(17.896662, 0, 0, 0, 1, 0, 0, 0, 128.14146, 17.6671, 0.42035055, 0)
+mesh = SubResource("PlaneMesh_521uk")
+surface_material_override/0 = SubResource("ShaderMaterial_8ld12")
 
 [editable path="Player"]
 [editable path="NPCs/Other/Pigeon Lady"]
