@@ -172,7 +172,7 @@ debug_color = Color(0.92992824, 2.9648543e-05, 0.66079307, 0.41960785)
 [node name="Pigeon Lady" parent="NPCs/Other" unique_id=1938342267 instance=ExtResource("8_jyv6n")]
 transform = Transform3D(0.032148212, 0, 2.9998279, 0, 3, 0, -2.9998279, 0, 0.032148212, 18.07417, 0.08820689, 7.2187157)
 
-[node name="Skeleton3D" parent="NPCs/Other/Pigeon Lady/Main" parent_id_path=PackedInt32Array(1938342267, 1507995420) index="0" unique_id=2026367099]
+[node name="Skeleton3D" parent="NPCs/Other/Pigeon Lady/Main" parent_id_path=PackedInt32Array(1938342267, 231985511) index="0" unique_id=505015500]
 bones/0/position = Vector3(-0.22421888, 1.7681983, -82.18391)
 bones/0/rotation = Quaternion(-0.76308304, 0.005539589, 0.08855812, 0.6401806)
 bones/1/rotation = Quaternion(0.07104798, 0.029179465, 0.0058739735, 0.99702877)
@@ -219,7 +219,7 @@ bones/37/rotation = Quaternion(-0.54574925, 0.09385181, -0.0096018445, 0.8326208
 bones/38/rotation = Quaternion(0.55518496, 0.13347994, 0.0099799065, 0.8208856)
 bones/39/rotation = Quaternion(0.5340214, 0.03238932, 0.022380738, 0.8445539)
 
-[node name="AnimationPlayer" parent="NPCs/Other/Pigeon Lady" index="1" unique_id=1306227399]
+[node name="AnimationPlayer" parent="NPCs/Other/Pigeon Lady" index="1" unique_id=107515142]
 autoplay = &"Choppy Free Dance"
 
 [node name="Interaction Trigger" parent="NPCs/Other/Pigeon Lady" unique_id=101737479 node_paths=PackedStringArray("hover_label") instance=ExtResource("9_mxqci")]
